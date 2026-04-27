@@ -92,10 +92,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         //开始分页查询
         PageHelper.startPage(employeePageQueryDTO.getPage(), employeePageQueryDTO.getPageSize());
 
-        Page<Employee> page =employeeMapper.pageQuery(employeePageQueryDTO);
+        Page<Employee> page =employeeMapper.pageQuery(employeePageQueryDTO); // 分页查询
 
-        long total = page.getTotal();
-        List<Employee> records = page.getResult();
+        long total = page.getTotal(); // 获取总记录数
+        List<Employee> records = page.getResult(); // 获取当前页的数据
         return new PageResult(total, records);
     }
 
